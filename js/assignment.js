@@ -6,18 +6,29 @@ const submissionBtn = document.getElementById("submission-btn");
 
 // create a mutable variable called age and do not assign it a value.
 
+const age = document.getElementById("age-input");
 
 function checkAgeAndRespond() {
-    age = parseInt(ageInputEl.value);
+    let age = document.getElementById("age-input").value;
     
-    // Write your code below
+    // let age = document.getElementById("age-input").value;
 
+    if (age >= 21) {
+        document.getElementById("response").innerHTML = `${"You can vote and purchase alchol."}`;
+    } 
+    
+    else if (age < 21 && age >= 18) {
+        document.getElementById("response").innerHTML = `${"You can vote, but you cannot purchase alcohol."}`;
+
+    } 
+    else {
+        document.getElementById("response").innerHTML = `${"You cannot vote and you cannot purchase alcohol."}`;
+    }
+         
 }
 
 
-submissionBtn.addEventListener("click", function () {
-    checkAgeAndRespond();
-});
+submissionBtn.addEventListener("click", checkAgeAndRespond);
 
 
 function validateInput(event) {
